@@ -1,0 +1,57 @@
+<div class=""bg>
+
+  <div class="parent">
+    <div class="child">
+      <div nz-col>
+          <h1 style="margin-left: 55px">Registro de Companhia</h1>
+      </div>
+
+      <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+
+        <nz-form-item>
+            <nz-form-control nzHasFeedback nzErrorTip="O valor digitado não é válido para e-mail">
+                  <input nz-input placeholder="E-mail" formControlName="email" id="email" />
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="O valor digitado não é válido para senha">
+                <input nz-input type="password" placeholder="Senha" formControlName="password" id="password" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="O valor digitado não é válido para senha">
+                <input nz-input type="password" placeholder="Confirme a senha" formControlName="checkPassword" id="password" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="O valor digitado não é válido para nome">
+                <input nz-input placeholder="Nome" formControlName="name" id="name" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="O valor digitado não é válido para endereço">
+                <input nz-input placeholder="Endereço" formControlName="address" id="address" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="O valor digitado não é válido para telefone">
+                <input nz-input placeholder="Telefone" formControlName="phone" id="phone" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">
+          Registrar
+        </button>
+         Ou <a routerLink="/login">fazer login</a>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>
