@@ -29,7 +29,7 @@ export class LoginComponent {
     submitForm() {
       this.authService.login(this.validateForm.get(['username'])!.value, this.validateForm.get(['password'])!.value)
       .subscribe(res =>{
-        console.log(res);
+   //     console.log(res);
       }, error => {
         this.notification
         .error(
