@@ -19,7 +19,7 @@
         <hr>
         <div style="float: right;">
             <button nzSize="small" nz-button nzType="primary" routerLink="/companhia/atualizar/{{tourism.id}}">Editar</button>
-            <button  style="margin-left: 10px" nzSize="small" nz-button nzType="primary" nzDanger>Deletar</button>
+            <button  (click)="deleteTourism(tourism.id)" style="margin-left: 10px" nzSize="small" nz-button nzType="primary" nzDanger>Deletar</button>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CompanyService } from '../../services/company.service';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'app-all-tourisms',
@@ -10,7 +11,8 @@ export class AllTourismsComponent {
 
   tourisms: any;
 
-  constructor(private companyService: CompanyService,) {}
+  constructor(private companyService: CompanyService,
+    private notification: NzNotificationService) {}
 
   ngOnInit() {
     this.getAllTourismsByUserId();
@@ -24,5 +26,17 @@ export class AllTourismsComponent {
 
   updateImg(img) {
     return 'data:image/jpeg;base64,' + img;
+  }
+
+  deleteTourism(tourismId:any) {
+    this.companyService.deleteTourism(tourismId).subscribe(res => {
+      this.notification
+      .success(
+        'SUCCESS',
+        'Turismo deletado com sucesso',
+        { nzDuration: 5000 }
+      );
+      this.getAllTourismsByUserId();
+    })
   }
 }
