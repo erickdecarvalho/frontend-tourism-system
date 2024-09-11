@@ -7,13 +7,15 @@ import { CompanyDashboardComponent } from './services/company-dashboard/company-
 import { CreateTourismComponent } from './pages/create-tourism/create-tourism.component';
 import { DemoNgZorroAntdModule } from '../DemoNgZorroAntdModule';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AllTourismsComponent } from './pages/all-tourisms/all-tourisms.component';
 
 
 @NgModule({
   declarations: [
     CompanyComponent,
     CompanyDashboardComponent,
-    CreateTourismComponent
+    CreateTourismComponent,
+    AllTourismsComponent
   ],
   imports: [
     CommonModule,

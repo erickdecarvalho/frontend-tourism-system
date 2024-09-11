@@ -1,0 +1,28 @@
+<div class="bg">
+
+  <div style="margin-top:10px;" class="child" *ngFor="let tourism of tourisms">
+    <div nz-row>
+      <div nz-col nzSpan="8">
+        <img class="profile" [src]="updateImg(tourism.returnedImg)" style="height: 130px; width: 200px; border-radius: 10px;" />
+      </div>
+      <div nz-col nzSpan="16">
+        <h2 style="cursor: pointer; color: #108ee9">
+          {{tourism.serviceName}}
+        </h2>
+        <hr>
+        <h5>
+          Preço: <b>{{tourism.price}}</b>
+        </h5>
+        <h5>
+          Descrição : <b>{{ tourism.description }}</b>
+        </h5>
+        <hr>
+        <div style="float: right;">
+            <button nzSize="small" nz-button nzType="primary">Editar</button>
+            <button  style="margin-left: 10px" nzSize="small" nz-button nzType="primary" nzDanger>Deletar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
