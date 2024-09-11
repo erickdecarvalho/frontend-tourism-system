@@ -18,6 +18,12 @@ export class ClientService {
     })
   }
 
+  searchTourismByName(name:any): Observable<any> {
+    return this.http.get(BASIC_URL + `api/clientes/turismos/procurar/${name}`, {
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();
     return authHeaders.set(
