@@ -26,6 +26,18 @@ export class CompanyService {
     })
   }
 
+  getTourismById(tourismId:any): Observable<any> {
+    return this.http.get(BASIC_URL + `api/companhias/turismo/${tourismId}`, {
+      headers : this.createAuthorizationHeader()
+    })
+  }
+
+  updateTourism(tourismId:any, tourismDTO:any): Observable<any> {
+    return this.http.put(BASIC_URL + `api/companhias/turismo/${tourismId}`, tourismDTO, {
+      headers : this.createAuthorizationHeader()
+    })
+  }
+
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();
     return authHeaders.set(
