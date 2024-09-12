@@ -51,6 +51,12 @@ export class CompanyService {
     })
   }
 
+  changeServiceStatus(serviceId: number, status: string): Observable<any> {
+    return this.http.get(BASIC_URL + `api/companhias/turismo/${serviceId}/${status}`, {
+      headers : this.createAuthorizationHeader()
+    })
+  }
+
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();
     return authHeaders.set(

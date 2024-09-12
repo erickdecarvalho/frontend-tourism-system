@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CompanyService } from '../company.service';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'app-company-dashboard',
@@ -10,7 +11,8 @@ export class CompanyDashboardComponent {
 
   services: any;
 
-  constructor(private companyService: CompanyService,) {}
+  constructor(private companyService: CompanyService,
+    private notification: NzNotificationService) {}
 
   ngOnInit() {
     this.getAllTourismServices();
@@ -20,6 +22,25 @@ export class CompanyDashboardComponent {
     this.companyService.getAllTourismServices().subscribe(res => {
       console.log(res);
       this.services = res;
+    })
+  }
+
+  changeServiceStatus(serviceId: number, status: string) {
+    this.companyService.changeServiceStatus(serviceId, status).subscribe(res => {
+      this.notification
+      .success(
+        'SUCCESS',
+        'Status do serviço alterado com sucesso',
+        { nzDuration: 5000 }
+      );
+      this.getAllTourismServices();
+    }, error => {
+      this.notification
+      .error(
+        'ERROR',
+        `${error.message}`,
+        { nzDuration: 5000 }
+      )
     })
   }
 }

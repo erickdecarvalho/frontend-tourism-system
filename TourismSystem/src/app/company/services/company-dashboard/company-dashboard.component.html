@@ -16,10 +16,10 @@
           <td style="font-weight: 600;">{{ service.reservationStatus }}</td>
           <td>
             <span *ngIf="service.reservationStatus === 'PENDING'">
-              <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary">
+              <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" (click)="changeServiceStatus(service.id, 'Approve')">
                 Aprovar
               </button>
-              <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" nzDanger>
+              <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" nzDanger (click)="changeServiceStatus(service.id, 'Reject')">
                 Negar
               </button>
             </span>
