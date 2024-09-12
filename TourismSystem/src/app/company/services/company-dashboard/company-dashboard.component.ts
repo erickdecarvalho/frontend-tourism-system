@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CompanyService } from '../company.service';
 
 @Component({
   selector: 'app-company-dashboard',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class CompanyDashboardComponent {
 
+  services: any;
+
+  constructor(private companyService: CompanyService,) {}
+
+  ngOnInit() {
+    this.getAllTourismServices();
+  }
+
+  getAllTourismServices() {
+    this.companyService.getAllTourismServices().subscribe(res => {
+      console.log(res);
+      this.services = res;
+    })
+  }
 }
