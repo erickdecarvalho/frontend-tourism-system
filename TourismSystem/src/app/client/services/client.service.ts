@@ -24,6 +24,18 @@ export class ClientService {
     })
   }
 
+  getTourismDetailsByTourismId(tourismId:any): Observable<any> {
+    return this.http.get(BASIC_URL + `api/clientes/turismo/${tourismId}`, {
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
+  tourismService(serviceDTO:any): Observable<any> {
+    return this.http.post(BASIC_URL + `api/clientes/servicos-de-turismo`, serviceDTO, {
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();
     return authHeaders.set(

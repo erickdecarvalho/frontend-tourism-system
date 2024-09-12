@@ -1,0 +1,51 @@
+<div class="bg" style="background-color: #f8f8f8;" *ngIf="tourism">
+  <div class="tourism-details-container">
+    <div class="top-section">
+      <div class="tourism-detail">
+        <div nz-col nzSpan="8">
+          <img class="profile" style="height: 130px; width: 200px; border-radius: 10px" [src]="avatarUrl" alt="profile" />
+        </div>
+        <div nz-col nzSpan="16">
+          <h2 style="cursor: pointer; color: #108ee9;">
+              {{ tourism.serviceName }}
+          </h2>
+          <h5>
+            Preço: R$ <b>{{ tourism.price }}</b>
+          </h5>
+          <h5>
+            Descrição: <b>{{ tourism.description }}</b> - Companhia : <b>{{ tourism.companyName }}</b>
+          </h5>
+        </div>
+      </div>
+      <div class="tourism-service">
+        <div>
+          <div nz-row>
+            <h2>Serviço de Turismo</h2>
+          </div>
+          <form nz-form [formGroup]="validateForm">
+            <div nz-row>
+              <div nz-col nzSpan="24">
+                  <nz-form-item>
+                    <nz-form-label [nzSpan]="24" nzFor="serviceDate">
+                      Data do serviço de turismo
+                    </nz-form-label>
+                    <nz-form-control [nzSpan]="24">
+                      <nz-date-picker formControlName="serviceDate" name="serviceDate" id="serviceDate">
+                      </nz-date-picker>
+                    </nz-form-control>
+                  </nz-form-item>
+              </div>
+            </div>
+            <button nz-button [nzType]="'primary'" (click)="tourismService()">
+              Solicitar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-section">
+
+    </div>
+  </div>
+</div>
