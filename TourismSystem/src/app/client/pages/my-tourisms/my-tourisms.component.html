@@ -1,0 +1,20 @@
+<nz-table style="padding: 30px;" [nzData]="tourismsService" #basicTable [nzPageSize]="20" [nzShowPagination]="'false'">
+  <thead>
+    <th style="font-weight: bolder; color: #003973;">Serviço</th>
+    <th style="font-weight: bolder; color: #003973;">Data</th>
+    <th style="font-weight: bolder; color: #003973;">Status</th>
+    <th style="font-weight: bolder; color: #003973;">Ação</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let service of basicTable.data">
+      <td style="font-weight: 600;">{{ service.serviceName }}</td>
+      <td>{{ service.tourismDate | date: 'dd/MM/yyyy' }}</td>
+      <td style="font-weight: 600;"> {{ service.reservationStatus }} </td>
+      <span *ngIf="service.reviewStatus == 'FALSE'" >
+        <td>
+          <button style="margin-left: 10px; margin-top: 15px;" nzSize="small" nz-button nzType="primary" nzDanger>Revisar</button>
+        </td>
+      </span>
+    </tr>
+  </tbody>
+</nz-table>
