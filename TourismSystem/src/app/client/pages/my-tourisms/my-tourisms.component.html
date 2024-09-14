@@ -12,7 +12,7 @@
       <td style="font-weight: 600;"> {{ service.reservationStatus }} </td>
       <span *ngIf="service.reviewStatus == 'FALSE'" >
         <td>
-          <button style="margin-left: 10px; margin-top: 15px;" nzSize="small" nz-button nzType="primary" nzDanger>Revisar</button>
+          <button style="margin-left: 10px; margin-top: 15px;" nzSize="small" nz-button nzType="primary" nzDanger routerLink="/cliente/resenha/{{service.id}}">Revisar</button>
         </td>
       </span>
     </tr>

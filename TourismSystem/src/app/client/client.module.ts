@@ -8,6 +8,7 @@ import { DemoNgZorroAntdModule } from '../DemoNgZorroAntdModule';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TourismDetailComponent } from './pages/tourism-detail/tourism-detail.component';
 import { MyTourismsComponent } from './pages/my-tourisms/my-tourisms.component';
+import { ReviewComponent } from './pages/review/review.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MyTourismsComponent } from './pages/my-tourisms/my-tourisms.component';
     ClientComponent,
     ClientDashboardComponent,
     TourismDetailComponent,
-    MyTourismsComponent
+    MyTourismsComponent,
+    ReviewComponent
   ],
   imports: [
     CommonModule,
