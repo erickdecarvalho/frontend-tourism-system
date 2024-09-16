@@ -5,13 +5,39 @@ import { CompanyDashboardComponent } from './services/company-dashboard/company-
 import { CreateTourismComponent } from './pages/create-tourism/create-tourism.component';
 import { AllTourismsComponent } from './pages/all-tourisms/all-tourisms.component';
 import { UpdateTourismComponent } from './pages/update-tourism/update-tourism.component';
+import { AuthGuard } from '../basic/services/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: CompanyComponent },
-  { path: 'dashboard', component: CompanyDashboardComponent },
-  { path: 'turismo', component: CreateTourismComponent },
-  { path: 'turismos', component: AllTourismsComponent },
-  { path: 'atualizar/:id', component: UpdateTourismComponent },
+  {
+    path: '',
+    component: CompanyComponent,
+    canActivate: [AuthGuard],
+    data: { expectedRole: 'company' }
+  },
+  {
+    path: 'dashboard',
+    component: CompanyDashboardComponent,
+    canActivate: [AuthGuard],
+    data: { expectedRole: 'company' }
+  },
+  {
+    path: 'turismo',
+    component: CreateTourismComponent,
+    canActivate: [AuthGuard],
+    data: { expectedRole: 'company' }
+  },
+  {
+    path: 'turismos',
+    component: AllTourismsComponent,
+    canActivate: [AuthGuard],
+    data: { expectedRole: 'company' }
+  },
+  {
+    path: 'atualizar/:id',
+    component: UpdateTourismComponent,
+    canActivate: [AuthGuard],
+    data: { expectedRole: 'company' }
+  }
 ];
 
 @NgModule({

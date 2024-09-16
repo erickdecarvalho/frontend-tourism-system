@@ -26,7 +26,6 @@ export class AuthService {
     return this.http.post(BASIC_URL + "authenticate", { username, password }, { observe: 'response' } )
       .pipe(
         map((res: HttpResponse<any>) => {
-        //  console.log(res.body)
           this.userStorageService.saveUser(res.body);
           const tokenLength = res.headers.get(AUTH_HEADER)?.length;
           const bearerToken = res.headers.get(AUTH_HEADER)?.substring(7, tokenLength);
@@ -35,5 +34,13 @@ export class AuthService {
           return res;
         })
       );
+  }
+
+  getToken(): string | null {
+    return UserStorageService.getToken();
+  }
+
+  getUser(): string | null {
+    return UserStorageService.getUser();
   }
 }
