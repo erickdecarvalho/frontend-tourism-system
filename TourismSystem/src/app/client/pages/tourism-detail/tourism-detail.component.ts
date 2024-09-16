@@ -16,6 +16,8 @@ export class TourismDetailComponent {
   avatarUrl: any;
   tourism: any;
 
+  reviews: any;
+
   validateForm!: FormGroup;
 
   constructor(private clientService: ClientService,
@@ -35,6 +37,7 @@ export class TourismDetailComponent {
       this.clientService.getTourismDetailsByTourismId(this.tourismId).subscribe(res => {
         this.avatarUrl = 'data:image/jpeg;base64,' + res.tourismDTO.returnedImg;
         this.tourism = res.tourismDTO
+        this.reviews = res.reviewDTOList;
       })
     }
 
