@@ -1,5 +1,5 @@
 <form nz-form [formGroup]="validateForm" (submit)="searchTourismByName()"
-style="margin-top: 20px; margin-bottom: 20px; text-align: center;">
+style="margin-top: 20px; margin-bottom: 30px; text-align: center;">
   <input nz-input placeholder="Digite um turismo para pesquisar" nzSize="large" style="width: 20%;" formControlName="service" />
 
   <button nz-button nzSize="large" nzType="primary" style="margin-left: 15px;" [disabled]="validateForm.invalid">Pesquisar</button>
@@ -18,7 +18,7 @@ style="margin-top: 20px; margin-bottom: 20px; text-align: center;">
         </h2>
         <hr>
         <h5>
-          Preço: <b>{{tourism.price}}</b>
+          Preço: R$ <b>{{tourism.price}}</b>
         </h5>
         <h5>
           Descrição : <b>{{ tourism.description }}</b>
